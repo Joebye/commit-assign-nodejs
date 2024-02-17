@@ -6,8 +6,6 @@ export const form = express.Router();
 
 form.post('', expressAsyncHandler(async(req, res) => {
     
-    const data = req.body;
-    console.log(data);
     const {userName, phoneNumber, password} = req.body;    
     const clientDb = new ClientDb();
     clientDb.client.connect();
