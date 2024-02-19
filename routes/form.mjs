@@ -6,10 +6,10 @@ export const form = express.Router();
 
 form.post('', expressAsyncHandler(async(req, res) => {
     
-    const {userName, phoneNumber, password} = req.body;    
+    const {username, phonenumber, password} = req.body;    
     const clientDb = new ClientDb();
     clientDb.client.connect();
-    const values = [userName, phoneNumber, password];
+    const values = [username, phonenumber, password];
     const query = "INSERT INTO users (userName, phoneNumber, password) VALUES ($1, $2, $3)"
     const resData = await clientDb.client.query(query, values);
     clientDb.client.end();
